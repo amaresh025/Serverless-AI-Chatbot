@@ -18,40 +18,9 @@
 
 ## 📌 End-to-End Architecture
 
-```
-┌────────────────────────────────────────┐
-│     Client Browser (Web Interface)     │
-│   (HTML5 / Modern CSS3 / Vanilla JS)   │
-└───────────────────┬────────────────────┘
-                    │
-                    │ 1. Hosted via AWS S3 Static Website Hosting
-                    ▼
-┌────────────────────────────────────────┐
-│        Amazon S3 Bucket Storage        │
-│      (serverless-chatbot-ui-001)       │
-└───────────────────┬────────────────────┘
-                    │
-                    │ 2. HTTPS Request (POST / OPTIONS Preflight)
-                    ▼
-┌────────────────────────────────────────┐
-│       Amazon API Gateway (REST)        │
-│       Resource: /serverless-chatbot    │
-└───────────────────┬────────────────────┘
-                    │
-                    │ 3. Lambda Proxy Integration
-                    ▼
-┌────────────────────────────────────────┐
-│          AWS Lambda (Python)           │
-│        (serverless-chatbot)            │
-└───────────────────┬────────────────────┘
-                    │
-                    │ 4. REST Request (Standard Library urllib.request)
-                    ▼
-┌────────────────────────────────────────┐
-│      Google Gemini 2.5 Flash LLM       │
-│      Generative AI Response Engine     │
-└────────────────────────────────────────┘
-```
+![Architecture Diagram](Chatbot/assets/architecture.svg)
+
+*Figure 2: End-to-end serverless request lifecycle across AWS Cloud (ap-south-1) and Google Gemini.*
 
 ---
 
