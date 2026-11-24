@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Enterprise AI Assistant</title>
+  
+  <!-- Modern Professional Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="layout">
+    <!-- Left Sidebar: Chat Sessions & History -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <div class="brand-title">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2"/>
+                <circle cx="12" cy="5" r="2"/>
+                <path d="M12 7v4"/>
+              </svg>
+            </div>
+            <span>Assistant</span>
+          </div>
+        </div>
+
+        <button class="btn-new-chat" id="btnNewChat" type="button">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+          New conversation
+        </button>
+      </div>
+
+      <!-- History List -->
+      <div class="sidebar-sessions" id="sidebarSessions">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Sidebar Footer Tools -->
+      <div class="sidebar-footer">
+        <button class="icon-btn" id="btnThemeToggle" type="button" title="Toggle theme">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </button>
+        <button class="icon-btn" id="btnClearAll" type="button" title="Clear all history">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+          </svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Backdrop for mobile drawer -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- Main Chat Workspace -->
+    <main class="main-chat">
+      <!-- Top Navigation -->
+      <nav class="chat-navbar">
+        <div class="navbar-left">
+          <button class="icon-btn" id="sidebarToggle" type="button" title="Toggle menu">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </button>
+          <span class="active-session-title" id="activeSessionTitle">New Conversation</span>
+        </div>
+
+        <div class="navbar-right">
+          <div class="status-badge">
+            <span class="status-dot" id="statusDot"></span>
+            <span id="statusText">Online</span>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Message History Container -->
+      <div class="chat-log" id="chatLog">
+        <!-- Messages rendered dynamically by app.js -->
+      </div>
+
+      <!-- Composer Input -->
+      <div class="chat-composer-wrap">
+        <form class="composer-box" id="composerForm" onsubmit="return false">
+          <textarea id="inputField" class="composer-textarea" rows="1" placeholder="Type a message... (Enter to send, Shift+Enter for newline)"></textarea>
+          <button id="btnSend" class="btn-send" type="button" aria-label="Send message">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+            </svg>
+          </button>
+        </form>
+        <div class="composer-footer-hint">Connected to AWS Lambda & Gemini 2.5 Flash</div>
+      </div>
+    </main>
+  </div>
+
+  <!-- External Application Logic -->
+  <script src="app.js"></script>
+</body>
+
+</html>

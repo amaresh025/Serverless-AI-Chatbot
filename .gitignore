@@ -1,0 +1,24 @@
+# Secrets & Credentials (CRITICAL - NEVER COMMIT)
+rootkey.csv
+*.csv
+.env
+*.pem
+*.key
+response.json
+
+# Local Practice Scripts (Excluded from Chatbot project)
+main.py
+translator.py
+commands.txt
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Environment & IDE
+.vscode/
+.DS_Store
+Thumbs.db
